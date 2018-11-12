@@ -1,0 +1,30 @@
+<!-- header -->
+
+  <div class="header">
+    <h1>Coach says</h1>
+  </div>
+
+<div class="container">
+  <!-- Display my questions -->
+  <p>Your question:</p> 
+  <div class="display question-display">
+    <p><%= @question_asked %></p> 
+  </div>
+
+  <!-- Display coaches answer -->
+  <p>Coach says: </p>
+  <div class="display answer-display">
+      <% if @question_asked === "I am going to work" %>
+        <%= @coaches_answer[:silly] %>
+      <% elsif @question_asked.include? "?" %>
+        <%= @coaches_answer[:great] %>
+      <% else %>
+        <%= @coaches_answer[:generic] %>
+      <% end %>
+  </div>
+</div>
+  <!-- link back to the ask -->
+  <div class="ask-another">
+    <%= link_to "Ask another", ask_path %>
+  </div>
+
